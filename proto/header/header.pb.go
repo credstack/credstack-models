@@ -24,14 +24,16 @@ const (
 // Header - A message representing shared data that is applied to all objects created by credstack
 type Header struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
+	// identifier - A UUID v5 based on an immutable property of the object this header is attached to.
+	Identifier string `protobuf:"bytes,1,opt,name=identifier,proto3" json:"identifier,omitempty"`
 	// createdAt - A unix timestamp representing when the object was created
-	CreatedAt int64 `protobuf:"varint,1,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
+	CreatedAt int64 `protobuf:"varint,2,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
 	// updatedAt - A unix timestamp representing when the object was last updated
-	UpdatedAt int64 `protobuf:"varint,2,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
+	UpdatedAt int64 `protobuf:"varint,3,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
 	// accessedAt - A unix timestamp representing when the object was last accessed
-	AccessedAt int64 `protobuf:"varint,3,opt,name=accessedAt,proto3" json:"accessedAt,omitempty"`
+	AccessedAt int64 `protobuf:"varint,4,opt,name=accessedAt,proto3" json:"accessedAt,omitempty"`
 	// tags - Arbitrary tags that can be applied to any object
-	Tags          map[string]string `protobuf:"bytes,4,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Tags          map[string]string `protobuf:"bytes,5,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,6 +68,13 @@ func (*Header) Descriptor() ([]byte, []int) {
 	return file_proto_header_header_proto_rawDescGZIP(), []int{0}
 }
 
+func (x *Header) GetIdentifier() string {
+	if x != nil {
+		return x.Identifier
+	}
+	return ""
+}
+
 func (x *Header) GetCreatedAt() int64 {
 	if x != nil {
 		return x.CreatedAt
@@ -98,14 +107,17 @@ var File_proto_header_header_proto protoreflect.FileDescriptor
 
 const file_proto_header_header_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/header/header.proto\x12\x06header\"\xcb\x01\n" +
-	"\x06Header\x12\x1c\n" +
-	"\tcreatedAt\x18\x01 \x01(\x03R\tcreatedAt\x12\x1c\n" +
-	"\tupdatedAt\x18\x02 \x01(\x03R\tupdatedAt\x12\x1e\n" +
+	"\x19proto/header/header.proto\x12\x06header\"\xeb\x01\n" +
+	"\x06Header\x12\x1e\n" +
 	"\n" +
-	"accessedAt\x18\x03 \x01(\x03R\n" +
+	"identifier\x18\x01 \x01(\tR\n" +
+	"identifier\x12\x1c\n" +
+	"\tcreatedAt\x18\x02 \x01(\x03R\tcreatedAt\x12\x1c\n" +
+	"\tupdatedAt\x18\x03 \x01(\x03R\tupdatedAt\x12\x1e\n" +
+	"\n" +
+	"accessedAt\x18\x04 \x01(\x03R\n" +
 	"accessedAt\x12,\n" +
-	"\x04tags\x18\x04 \x03(\v2\x18.header.Header.TagsEntryR\x04tags\x1a7\n" +
+	"\x04tags\x18\x05 \x03(\v2\x18.header.Header.TagsEntryR\x04tags\x1a7\n" +
 	"\tTagsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B/Z-github.com/stevezaluk/credstack-models/headerb\x06proto3"

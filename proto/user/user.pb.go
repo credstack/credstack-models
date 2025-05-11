@@ -27,7 +27,7 @@ type User struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// header - Shared data values used across all objects
 	Header *header.Header `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	// sub - A UUID v5 based on the users email address, used for identifying the user
+	// sub - A UUID v5 based on the users email address, used for identifying the user. This is the same as the identifier in the header
 	Sub string `protobuf:"bytes,2,opt,name=sub,proto3" json:"sub,omitempty"`
 	// username - The username of the user. Does not need to be unique as primary lookup for the user is done via userId
 	Username string `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
@@ -54,7 +54,11 @@ type User struct {
 	// address - The users physical mailing address. Can be null
 	Address string `protobuf:"bytes,14,opt,name=address,proto3" json:"address,omitempty"`
 	// credential - A message representing the users hashed password. Will be left null when exporting unless explicitly declared
-	Credential    *UserCredential `protobuf:"bytes,15,opt,name=credential,proto3" json:"credential,omitempty"`
+	Credential *UserCredential `protobuf:"bytes,15,opt,name=credential,proto3" json:"credential,omitempty"`
+	// scopes - A list of scope ID's that were directly assigned to the user
+	Scopes []string `protobuf:"bytes,16,rep,name=scopes,proto3" json:"scopes,omitempty"`
+	// roles - A list of role ID's that were directly assigned to the user
+	Roles         []string `protobuf:"bytes,17,rep,name=roles,proto3" json:"roles,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -194,11 +198,25 @@ func (x *User) GetCredential() *UserCredential {
 	return nil
 }
 
+func (x *User) GetScopes() []string {
+	if x != nil {
+		return x.Scopes
+	}
+	return nil
+}
+
+func (x *User) GetRoles() []string {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
 var File_proto_user_user_proto protoreflect.FileDescriptor
 
 const file_proto_user_user_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/user/user.proto\x12\x04user\x1a\x1bproto/user/credential.proto\x1a\x19proto/header/header.proto\"\xec\x03\n" +
+	"\x15proto/user/user.proto\x12\x04user\x1a\x1bproto/user/credential.proto\x1a\x19proto/header/header.proto\"\x9a\x04\n" +
 	"\x04User\x12&\n" +
 	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12\x10\n" +
 	"\x03sub\x18\x02 \x01(\tR\x03sub\x12\x1a\n" +
@@ -221,7 +239,9 @@ const file_proto_user_user_proto_rawDesc = "" +
 	"\aaddress\x18\x0e \x01(\tR\aaddress\x124\n" +
 	"\n" +
 	"credential\x18\x0f \x01(\v2\x14.user.UserCredentialR\n" +
-	"credentialB-Z+github.com/stevezaluk/credstack-models/userb\x06proto3"
+	"credential\x12\x16\n" +
+	"\x06scopes\x18\x10 \x03(\tR\x06scopes\x12\x14\n" +
+	"\x05roles\x18\x11 \x03(\tR\x05rolesB-Z+github.com/stevezaluk/credstack-models/userb\x06proto3"
 
 var (
 	file_proto_user_user_proto_rawDescOnce sync.Once
