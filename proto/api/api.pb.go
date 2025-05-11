@@ -75,10 +75,10 @@ type API struct {
 	Domain string `protobuf:"bytes,1,opt,name=domain,proto3" json:"domain,omitempty"`
 	// name - The name of the API as defined by the user
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	// tokenType - The type of tokens the API should issue
-	TokenType TokenType `protobuf:"varint,3,opt,name=tokenType,proto3,enum=api.TokenType" json:"tokenType,omitempty"`
-	// enforceRbac - Enforce permissions and roles for this API
-	EnforceRbac bool `protobuf:"varint,4,opt,name=enforceRbac,proto3" json:"enforceRbac,omitempty"`
+	// token_type - The type of tokens the API should issue
+	TokenType TokenType `protobuf:"varint,3,opt,name=token_type,json=tokenType,proto3,enum=api.TokenType" json:"token_type,omitempty"`
+	// enforce_rbac - Enforce permissions and roles for this API
+	EnforceRbac bool `protobuf:"varint,4,opt,name=enforce_rbac,json=enforceRbac,proto3" json:"enforce_rbac,omitempty"`
 	// applications - A list of authorized applications for this API
 	Applications  []string `protobuf:"bytes,5,rep,name=applications,proto3" json:"applications,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -154,12 +154,13 @@ var File_proto_api_api_proto protoreflect.FileDescriptor
 
 const file_proto_api_api_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/api/api.proto\x12\x03api\x1a\x15proto/api/scope.proto\"\xa5\x01\n" +
+	"\x13proto/api/api.proto\x12\x03api\"\xa7\x01\n" +
 	"\x03API\x12\x16\n" +
 	"\x06domain\x18\x01 \x01(\tR\x06domain\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12,\n" +
-	"\ttokenType\x18\x03 \x01(\x0e2\x0e.api.TokenTypeR\ttokenType\x12 \n" +
-	"\venforceRbac\x18\x04 \x01(\bR\venforceRbac\x12\"\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12-\n" +
+	"\n" +
+	"token_type\x18\x03 \x01(\x0e2\x0e.api.TokenTypeR\ttokenType\x12!\n" +
+	"\fenforce_rbac\x18\x04 \x01(\bR\venforceRbac\x12\"\n" +
 	"\fapplications\x18\x05 \x03(\tR\fapplications*!\n" +
 	"\tTokenType\x12\t\n" +
 	"\x05HS256\x10\x00\x12\t\n" +
@@ -184,7 +185,7 @@ var file_proto_api_api_proto_goTypes = []any{
 	(*API)(nil),    // 1: api.API
 }
 var file_proto_api_api_proto_depIdxs = []int32{
-	0, // 0: api.API.tokenType:type_name -> api.TokenType
+	0, // 0: api.API.token_type:type_name -> api.TokenType
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -197,7 +198,6 @@ func file_proto_api_api_proto_init() {
 	if File_proto_api_api_proto != nil {
 		return
 	}
-	file_proto_api_scope_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -33,24 +33,24 @@ type User struct {
 	Username string `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
 	// email - The primary email address for the user. Must be unique
 	Email string `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
-	// emailVerified - A boolean value describing if the user has validated there email address
-	EmailVerified bool `protobuf:"varint,5,opt,name=emailVerified,proto3" json:"emailVerified,omitempty"`
-	// givenName - The users first name. Can be null, and does not need to be unique
-	GivenName string `protobuf:"bytes,6,opt,name=givenName,proto3" json:"givenName,omitempty"`
-	// middleName - The users middle name. Can be null, and does not need to be unique
-	MiddleName string `protobuf:"bytes,7,opt,name=middleName,proto3" json:"middleName,omitempty"`
-	// familyName - The users last name. Can be null, and does not need to be unique
-	FamilyName string `protobuf:"bytes,8,opt,name=familyName,proto3" json:"familyName,omitempty"`
+	// email_verified - A boolean value describing if the user has validated there email address
+	EmailVerified bool `protobuf:"varint,5,opt,name=email_verified,json=emailVerified,proto3" json:"email_verified,omitempty"`
+	// given_name - The users first name. Can be null, and does not need to be unique
+	GivenName string `protobuf:"bytes,6,opt,name=given_name,json=givenName,proto3" json:"given_name,omitempty"`
+	// middle_name - The users middle name. Can be null, and does not need to be unique
+	MiddleName string `protobuf:"bytes,7,opt,name=middle_name,json=middleName,proto3" json:"middle_name,omitempty"`
+	// family_name - The users last name. Can be null, and does not need to be unique
+	FamilyName string `protobuf:"bytes,8,opt,name=family_name,json=familyName,proto3" json:"family_name,omitempty"`
 	// gender - The users gender. Can be null
 	Gender string `protobuf:"bytes,9,opt,name=gender,proto3" json:"gender,omitempty"`
-	// birthDate - The users birthdate represented as YYYY-MM-DD
-	BirthDate string `protobuf:"bytes,10,opt,name=birthDate,proto3" json:"birthDate,omitempty"`
-	// zoneInfo - The timezone for the user that should be respected by timestamps. Defaults to America/New_York
-	ZoneInfo string `protobuf:"bytes,11,opt,name=zoneInfo,proto3" json:"zoneInfo,omitempty"`
-	// phoneNumber - The users phone number in the following format +1800-555-555
-	PhoneNumber string `protobuf:"bytes,12,opt,name=phoneNumber,proto3" json:"phoneNumber,omitempty"`
-	// phoneNumberVerified - A boolean value describing if the user has validated there email address
-	PhoneNumberVerified string `protobuf:"bytes,13,opt,name=phoneNumberVerified,proto3" json:"phoneNumberVerified,omitempty"`
+	// birth_date - The users birthdate represented as YYYY-MM-DD
+	BirthDate string `protobuf:"bytes,10,opt,name=birth_date,json=birthDate,proto3" json:"birth_date,omitempty"`
+	// zone_info - The timezone for the user that should be respected by timestamps. Defaults to America/New_York
+	ZoneInfo string `protobuf:"bytes,11,opt,name=zone_info,json=zoneInfo,proto3" json:"zone_info,omitempty"`
+	// phone_number - The users phone number in the following format +1800-555-555
+	PhoneNumber string `protobuf:"bytes,12,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty"`
+	// phone_number_verified - A boolean value describing if the user has validated there email address
+	PhoneNumberVerified string `protobuf:"bytes,13,opt,name=phone_number_verified,json=phoneNumberVerified,proto3" json:"phone_number_verified,omitempty"`
 	// address - The users physical mailing address. Can be null
 	Address string `protobuf:"bytes,14,opt,name=address,proto3" json:"address,omitempty"`
 	// credential - A message representing the users hashed password. Will be left null when exporting unless explicitly declared
@@ -216,26 +216,26 @@ var File_proto_user_user_proto protoreflect.FileDescriptor
 
 const file_proto_user_user_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/user/user.proto\x12\x04user\x1a\x1bproto/user/credential.proto\x1a\x19proto/header/header.proto\"\x9a\x04\n" +
+	"\x15proto/user/user.proto\x12\x04user\x1a\x1bproto/user/credential.proto\x1a\x19proto/header/header.proto\"\xa3\x04\n" +
 	"\x04User\x12&\n" +
 	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12\x10\n" +
 	"\x03sub\x18\x02 \x01(\tR\x03sub\x12\x1a\n" +
 	"\busername\x18\x03 \x01(\tR\busername\x12\x14\n" +
-	"\x05email\x18\x04 \x01(\tR\x05email\x12$\n" +
-	"\remailVerified\x18\x05 \x01(\bR\remailVerified\x12\x1c\n" +
-	"\tgivenName\x18\x06 \x01(\tR\tgivenName\x12\x1e\n" +
+	"\x05email\x18\x04 \x01(\tR\x05email\x12%\n" +
+	"\x0eemail_verified\x18\x05 \x01(\bR\remailVerified\x12\x1d\n" +
 	"\n" +
-	"middleName\x18\a \x01(\tR\n" +
-	"middleName\x12\x1e\n" +
-	"\n" +
-	"familyName\x18\b \x01(\tR\n" +
+	"given_name\x18\x06 \x01(\tR\tgivenName\x12\x1f\n" +
+	"\vmiddle_name\x18\a \x01(\tR\n" +
+	"middleName\x12\x1f\n" +
+	"\vfamily_name\x18\b \x01(\tR\n" +
 	"familyName\x12\x16\n" +
-	"\x06gender\x18\t \x01(\tR\x06gender\x12\x1c\n" +
-	"\tbirthDate\x18\n" +
-	" \x01(\tR\tbirthDate\x12\x1a\n" +
-	"\bzoneInfo\x18\v \x01(\tR\bzoneInfo\x12 \n" +
-	"\vphoneNumber\x18\f \x01(\tR\vphoneNumber\x120\n" +
-	"\x13phoneNumberVerified\x18\r \x01(\tR\x13phoneNumberVerified\x12\x18\n" +
+	"\x06gender\x18\t \x01(\tR\x06gender\x12\x1d\n" +
+	"\n" +
+	"birth_date\x18\n" +
+	" \x01(\tR\tbirthDate\x12\x1b\n" +
+	"\tzone_info\x18\v \x01(\tR\bzoneInfo\x12!\n" +
+	"\fphone_number\x18\f \x01(\tR\vphoneNumber\x122\n" +
+	"\x15phone_number_verified\x18\r \x01(\tR\x13phoneNumberVerified\x12\x18\n" +
 	"\aaddress\x18\x0e \x01(\tR\aaddress\x124\n" +
 	"\n" +
 	"credential\x18\x0f \x01(\v2\x14.user.UserCredentialR\n" +

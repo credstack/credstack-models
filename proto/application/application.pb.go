@@ -26,25 +26,25 @@ const (
 type GrantTypes int32
 
 const (
-	// ClientCredentialsGrant - Client credentials grant allows direct issuance of tokens in exchange for a client ID and secret
-	GrantTypes_ClientCredentialsGrant GrantTypes = 0
-	// AuthorizationCodeGrant - Authorization Code Grant + PKCE allows tokens to be issued after the user has authentication with an OIDC provider
-	GrantTypes_AuthorizationCodeGrant GrantTypes = 1
-	// PasswordGrant - Deprecated OAuth grant that allows direct issuance of tokens in exchange for raw user credentials
-	GrantTypes_PasswordGrant GrantTypes = 2
+	// client_credentials - Client credentials grant allows direct issuance of tokens in exchange for a client ID and secret
+	GrantTypes_client_credentials GrantTypes = 0
+	// authorization_code - Authorization Code Grant + PKCE allows tokens to be issued after the user has authentication with an OIDC provider
+	GrantTypes_authorization_code GrantTypes = 1
+	// password - Deprecated OAuth grant that allows direct issuance of tokens in exchange for raw user credentials
+	GrantTypes_password GrantTypes = 2
 )
 
 // Enum value maps for GrantTypes.
 var (
 	GrantTypes_name = map[int32]string{
-		0: "ClientCredentialsGrant",
-		1: "AuthorizationCodeGrant",
-		2: "PasswordGrant",
+		0: "client_credentials",
+		1: "authorization_code",
+		2: "password",
 	}
 	GrantTypes_value = map[string]int32{
-		"ClientCredentialsGrant": 0,
-		"AuthorizationCodeGrant": 1,
-		"PasswordGrant":          2,
+		"client_credentials": 0,
+		"authorization_code": 1,
+		"password":           2,
 	}
 )
 
@@ -80,16 +80,16 @@ type Application struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// header - Shared data values used across all objects
 	Header *header.Header `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	// clientId - The client ID used in the authorization process
-	ClientId string `protobuf:"bytes,2,opt,name=clientId,proto3" json:"clientId,omitempty"`
-	// clientSecret - The client secret used in the authorization process
-	ClientSecret string `protobuf:"bytes,3,opt,name=clientSecret,proto3" json:"clientSecret,omitempty"`
-	// redirectUri - A redirect URI for the application to redirect to after authorization
-	RedirectUri string `protobuf:"bytes,4,opt,name=redirectUri,proto3" json:"redirectUri,omitempty"`
-	// tokenLifetime - The amount of time in seconds, before the token expires
-	TokenLifetime uint64 `protobuf:"varint,5,opt,name=tokenLifetime,proto3" json:"tokenLifetime,omitempty"`
-	// grantType - The grant types this Application is authorized to issue on
-	GrantTypes    []GrantTypes `protobuf:"varint,6,rep,packed,name=grantTypes,proto3,enum=application.GrantTypes" json:"grantTypes,omitempty"`
+	// client_id - The client ID used in the authorization process
+	ClientId string `protobuf:"bytes,2,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	// client_secret - The client secret used in the authorization process
+	ClientSecret string `protobuf:"bytes,3,opt,name=client_secret,json=clientSecret,proto3" json:"client_secret,omitempty"`
+	// redirect_uri - A redirect URI for the application to redirect to after authorization
+	RedirectUri string `protobuf:"bytes,4,opt,name=redirect_uri,json=redirectUri,proto3" json:"redirect_uri,omitempty"`
+	// token_lifetime - The amount of time in seconds, before the token expires
+	TokenLifetime uint64 `protobuf:"varint,5,opt,name=token_lifetime,json=tokenLifetime,proto3" json:"token_lifetime,omitempty"`
+	// grant_type - The grant types this Application is authorized to issue on
+	GrantType     []GrantTypes `protobuf:"varint,6,rep,packed,name=grant_type,json=grantType,proto3,enum=application.GrantTypes" json:"grant_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -159,9 +159,9 @@ func (x *Application) GetTokenLifetime() uint64 {
 	return 0
 }
 
-func (x *Application) GetGrantTypes() []GrantTypes {
+func (x *Application) GetGrantType() []GrantTypes {
 	if x != nil {
-		return x.GrantTypes
+		return x.GrantType
 	}
 	return nil
 }
@@ -170,21 +170,20 @@ var File_proto_application_application_proto protoreflect.FileDescriptor
 
 const file_proto_application_application_proto_rawDesc = "" +
 	"\n" +
-	"#proto/application/application.proto\x12\vapplication\x1a\x19proto/header/header.proto\"\xf6\x01\n" +
+	"#proto/application/application.proto\x12\vapplication\x1a\x19proto/header/header.proto\"\xf9\x01\n" +
 	"\vApplication\x12&\n" +
-	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12\x1a\n" +
-	"\bclientId\x18\x02 \x01(\tR\bclientId\x12\"\n" +
-	"\fclientSecret\x18\x03 \x01(\tR\fclientSecret\x12 \n" +
-	"\vredirectUri\x18\x04 \x01(\tR\vredirectUri\x12$\n" +
-	"\rtokenLifetime\x18\x05 \x01(\x04R\rtokenLifetime\x127\n" +
+	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12\x1b\n" +
+	"\tclient_id\x18\x02 \x01(\tR\bclientId\x12#\n" +
+	"\rclient_secret\x18\x03 \x01(\tR\fclientSecret\x12!\n" +
+	"\fredirect_uri\x18\x04 \x01(\tR\vredirectUri\x12%\n" +
+	"\x0etoken_lifetime\x18\x05 \x01(\x04R\rtokenLifetime\x126\n" +
 	"\n" +
-	"grantTypes\x18\x06 \x03(\x0e2\x17.application.GrantTypesR\n" +
-	"grantTypes*W\n" +
+	"grant_type\x18\x06 \x03(\x0e2\x17.application.GrantTypesR\tgrantType*J\n" +
 	"\n" +
-	"GrantTypes\x12\x1a\n" +
-	"\x16ClientCredentialsGrant\x10\x00\x12\x1a\n" +
-	"\x16AuthorizationCodeGrant\x10\x01\x12\x11\n" +
-	"\rPasswordGrant\x10\x02B4Z2github.com/stevezaluk/credstack-models/applicationb\x06proto3"
+	"GrantTypes\x12\x16\n" +
+	"\x12client_credentials\x10\x00\x12\x16\n" +
+	"\x12authorization_code\x10\x01\x12\f\n" +
+	"\bpassword\x10\x02B4Z2github.com/stevezaluk/credstack-models/applicationb\x06proto3"
 
 var (
 	file_proto_application_application_proto_rawDescOnce sync.Once
@@ -207,7 +206,7 @@ var file_proto_application_application_proto_goTypes = []any{
 }
 var file_proto_application_application_proto_depIdxs = []int32{
 	2, // 0: application.Application.header:type_name -> header.Header
-	0, // 1: application.Application.grantTypes:type_name -> application.GrantTypes
+	0, // 1: application.Application.grant_type:type_name -> application.GrantTypes
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name

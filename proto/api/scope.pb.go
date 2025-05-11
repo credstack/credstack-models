@@ -30,8 +30,8 @@ type PermissionScope struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// header - Shared data values used across all objects
 	Header *header.Header `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	// associatedApi - The API this permission scope is assigned to
-	AssociatedApi string `protobuf:"bytes,2,opt,name=associatedApi,proto3" json:"associatedApi,omitempty"`
+	// associated_api - The API this permission scope is assigned to
+	AssociatedApi string `protobuf:"bytes,2,opt,name=associated_api,json=associatedApi,proto3" json:"associated_api,omitempty"`
 	// key - A key for the permission scope
 	Key string `protobuf:"bytes,3,opt,name=key,proto3" json:"key,omitempty"`
 	// value - A value for the permission scope
@@ -102,10 +102,10 @@ var File_proto_api_scope_proto protoreflect.FileDescriptor
 
 const file_proto_api_scope_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/api/scope.proto\x12\x03api\x1a\x19proto/header/header.proto\"\x87\x01\n" +
+	"\x15proto/api/scope.proto\x12\x03api\x1a\x19proto/header/header.proto\"\x88\x01\n" +
 	"\x0fPermissionScope\x12&\n" +
-	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12$\n" +
-	"\rassociatedApi\x18\x02 \x01(\tR\rassociatedApi\x12\x10\n" +
+	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12%\n" +
+	"\x0eassociated_api\x18\x02 \x01(\tR\rassociatedApi\x12\x10\n" +
 	"\x03key\x18\x03 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x04 \x01(\tR\x05valueB,Z*github.com/stevezaluk/credstack-models/apib\x06proto3"
 
