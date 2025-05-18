@@ -36,7 +36,9 @@ type UserCredential struct {
 	// threads - The number of threads (or go-routines in our case) that should be used when hashing passwords
 	Threads uint32 `protobuf:"varint,5,opt,name=threads,proto3" json:"threads,omitempty"`
 	// key_length - The length of the generated password hash. Usually 32 or 64
-	KeyLength     uint32 `protobuf:"varint,6,opt,name=key_length,json=keyLength,proto3" json:"key_length,omitempty"`
+	KeyLength uint32 `protobuf:"varint,6,opt,name=key_length,json=keyLength,proto3" json:"key_length,omitempty"`
+	// salt_length - The length of the generated password salt. Usually 32
+	SaltLength    uint32 `protobuf:"varint,7,opt,name=salt_length,json=saltLength,proto3" json:"salt_length,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -113,11 +115,18 @@ func (x *UserCredential) GetKeyLength() uint32 {
 	return 0
 }
 
+func (x *UserCredential) GetSaltLength() uint32 {
+	if x != nil {
+		return x.SaltLength
+	}
+	return 0
+}
+
 var File_proto_user_credential_proto protoreflect.FileDescriptor
 
 const file_proto_user_credential_proto_rawDesc = "" +
 	"\n" +
-	"\x1bproto/user/credential.proto\x12\x04user\"\x9b\x01\n" +
+	"\x1bproto/user/credential.proto\x12\x04user\"\xbc\x01\n" +
 	"\x0eUserCredential\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
 	"\x04salt\x18\x02 \x01(\tR\x04salt\x12\x12\n" +
@@ -125,7 +134,9 @@ const file_proto_user_credential_proto_rawDesc = "" +
 	"\x06memory\x18\x04 \x01(\rR\x06memory\x12\x18\n" +
 	"\athreads\x18\x05 \x01(\rR\athreads\x12\x1d\n" +
 	"\n" +
-	"key_length\x18\x06 \x01(\rR\tkeyLengthB-Z+github.com/stevezaluk/credstack-models/userb\x06proto3"
+	"key_length\x18\x06 \x01(\rR\tkeyLength\x12\x1f\n" +
+	"\vsalt_length\x18\a \x01(\rR\n" +
+	"saltLengthB-Z+github.com/stevezaluk/credstack-models/userb\x06proto3"
 
 var (
 	file_proto_user_credential_proto_rawDescOnce sync.Once
