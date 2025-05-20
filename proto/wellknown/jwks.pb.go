@@ -7,7 +7,7 @@
 package wellknown
 
 import (
-	token "github.com/stevezaluk/credstack-models/token"
+	token "github.com/stevezaluk/credstack-models/proto/token"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -74,7 +74,7 @@ const file_proto_wellknown_jwks_proto_rawDesc = "" +
 	"\n" +
 	"\x1aproto/wellknown/jwks.proto\x12\twellknown\x1a\x15proto/token/jwk.proto\"6\n" +
 	"\rJSONWebKeySet\x12%\n" +
-	"\x04keys\x18\x01 \x03(\v2\x11.token.JSONWebKeyR\x04keysB2Z0github.com/stevezaluk/credstack-models/wellknownb\x06proto3"
+	"\x04keys\x18\x01 \x03(\v2\x11.token.JSONWebKeyR\x04keysB8Z6github.com/stevezaluk/credstack-models/proto/wellknownb\x06proto3"
 
 var (
 	file_proto_wellknown_jwks_proto_rawDescOnce sync.Once

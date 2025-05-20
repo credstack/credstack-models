@@ -164,7 +164,7 @@ const file_proto_api_api_proto_rawDesc = "" +
 	"\fapplications\x18\x05 \x03(\tR\fapplications*!\n" +
 	"\tTokenType\x12\t\n" +
 	"\x05HS256\x10\x00\x12\t\n" +
-	"\x05RS256\x10\x01B,Z*github.com/stevezaluk/credstack-models/apib\x06proto3"
+	"\x05RS256\x10\x01B2Z0github.com/stevezaluk/credstack-models/proto/apib\x06proto3"
 
 var (
 	file_proto_api_api_proto_rawDescOnce sync.Once

@@ -125,7 +125,7 @@ const file_proto_response_token_proto_rawDesc = "" +
 	"\n" +
 	"expires_in\x18\x04 \x01(\rR\texpiresIn\x12#\n" +
 	"\rrefresh_token\x18\x05 \x01(\tR\frefreshToken\x12\x14\n" +
-	"\x05scope\x18\x06 \x01(\tR\x05scopeB1Z/github.com/stevezaluk/credstack-models/responseb\x06proto3"
+	"\x05scope\x18\x06 \x01(\tR\x05scopeB7Z5github.com/stevezaluk/credstack-models/proto/responseb\x06proto3"
 
 var (
 	file_proto_response_token_proto_rawDescOnce sync.Once
