@@ -92,7 +92,7 @@ const file_proto_request_login_proto_rawDesc = "" +
 	"\fLoginRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x18\n" +
-	"\amfaCode\x18\x03 \x01(\rR\amfaCodeB0Z.github.com/stevezaluk/credstack-models/requestb\x06proto3"
+	"\amfaCode\x18\x03 \x01(\rR\amfaCodeB6Z4github.com/stevezaluk/credstack-models/proto/requestb\x06proto3"
 
 var (
 	file_proto_request_login_proto_rawDescOnce sync.Once

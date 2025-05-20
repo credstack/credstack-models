@@ -104,7 +104,7 @@ const file_proto_request_register_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12!\n" +
-	"\fphone_number\x18\x04 \x01(\tR\vphoneNumberB0Z.github.com/stevezaluk/credstack-models/requestb\x06proto3"
+	"\fphone_number\x18\x04 \x01(\tR\vphoneNumberB6Z4github.com/stevezaluk/credstack-models/proto/requestb\x06proto3"
 
 var (
 	file_proto_request_register_proto_rawDescOnce sync.Once

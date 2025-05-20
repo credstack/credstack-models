@@ -133,7 +133,7 @@ const file_proto_wellknown_oidc_proto_rawDesc = "" +
 	"\x11userinfo_endpoint\x18\x04 \x01(\tR\x10userinfoEndpoint\x12\x19\n" +
 	"\bjwks_uri\x18\x05 \x01(\tR\ajwksUri\x120\n" +
 	"\x14end_session_endpoint\x18\x06 \x01(\tR\x12endSessionEndpoint\x123\n" +
-	"\x15registration_endpoint\x18\a \x01(\tR\x14registrationEndpointB2Z0github.com/stevezaluk/credstack-models/wellknownb\x06proto3"
+	"\x15registration_endpoint\x18\a \x01(\tR\x14registrationEndpointB8Z6github.com/stevezaluk/credstack-models/proto/wellknownb\x06proto3"
 
 var (
 	file_proto_wellknown_oidc_proto_rawDescOnce sync.Once

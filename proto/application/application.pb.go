@@ -7,7 +7,7 @@
 package application
 
 import (
-	header "github.com/stevezaluk/credstack-models/header"
+	header "github.com/stevezaluk/credstack-models/proto/header"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -183,7 +183,7 @@ const file_proto_application_application_proto_rawDesc = "" +
 	"GrantTypes\x12\x16\n" +
 	"\x12client_credentials\x10\x00\x12\x16\n" +
 	"\x12authorization_code\x10\x01\x12\f\n" +
-	"\bpassword\x10\x02B4Z2github.com/stevezaluk/credstack-models/applicationb\x06proto3"
+	"\bpassword\x10\x02B:Z8github.com/stevezaluk/credstack-models/proto/applicationb\x06proto3"
 
 var (
 	file_proto_application_application_proto_rawDescOnce sync.Once
