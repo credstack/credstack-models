@@ -25,17 +25,17 @@ const (
 type JSONWebKey struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// kty - Defines the type of key this JWK represents
-	Kty string `protobuf:"bytes,1,opt,name=kty,proto3" json:"kty,omitempty"`
+	Kty string `protobuf:"bytes,1,opt,name=kty,proto3" json:"kty,omitempty" bson:"kty"` // @gotags: bson:"kty"
 	// use - Defines the use for this JWK, usually sig
-	Use string `protobuf:"bytes,2,opt,name=use,proto3" json:"use,omitempty"`
+	Use string `protobuf:"bytes,2,opt,name=use,proto3" json:"use,omitempty" bson:"use"` // @gotags: bson:"use"
 	// kid - A unique identifier for the key
-	Kid string `protobuf:"bytes,3,opt,name=kid,proto3" json:"kid,omitempty"`
+	Kid string `protobuf:"bytes,3,opt,name=kid,proto3" json:"kid,omitempty" bson:"kid"` // @gotags: bson:"kid"
 	// alg - Defines the algorithm that this JWK was generated using
-	Alg string `protobuf:"bytes,4,opt,name=alg,proto3" json:"alg,omitempty"`
+	Alg string `protobuf:"bytes,4,opt,name=alg,proto3" json:"alg,omitempty" bson:"alg"` // @gotags: bson:"alg"
 	// n - Public modulos for the key
-	N string `protobuf:"bytes,5,opt,name=n,proto3" json:"n,omitempty"`
+	N string `protobuf:"bytes,5,opt,name=n,proto3" json:"n,omitempty" bson:"n"` // @gotags: bson:"n"
 	// e - Public exponent for the key
-	E             string `protobuf:"bytes,6,opt,name=e,proto3" json:"e,omitempty"`
+	E             string `protobuf:"bytes,6,opt,name=e,proto3" json:"e,omitempty" bson:"e"` // @gotags: bson:"e"
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

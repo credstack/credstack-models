@@ -72,15 +72,15 @@ func (TokenType) EnumDescriptor() ([]byte, []int) {
 type API struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// domain - A arbitrary domain used in the audience of issues tokens. Does not need to resolve to anything
-	Domain string `protobuf:"bytes,1,opt,name=domain,proto3" json:"domain,omitempty"`
+	Domain string `protobuf:"bytes,1,opt,name=domain,proto3" json:"domain,omitempty" bson:"domains"` // @gotags: bson:"domains"
 	// name - The name of the API as defined by the user
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty" bson:"name"` // @gotags: bson:"name"
 	// token_type - The type of tokens the API should issue
-	TokenType TokenType `protobuf:"varint,3,opt,name=token_type,json=tokenType,proto3,enum=api.TokenType" json:"token_type,omitempty"`
+	TokenType TokenType `protobuf:"varint,3,opt,name=token_type,json=tokenType,proto3,enum=api.TokenType" json:"token_type,omitempty" bson:"token_type"` // @gotags: bson:"token_type"
 	// enforce_rbac - Enforce permissions and roles for this API
-	EnforceRbac bool `protobuf:"varint,4,opt,name=enforce_rbac,json=enforceRbac,proto3" json:"enforce_rbac,omitempty"`
+	EnforceRbac bool `protobuf:"varint,4,opt,name=enforce_rbac,json=enforceRbac,proto3" json:"enforce_rbac,omitempty" bson:"enforce_rbac"` // @gotags: bson:"enforce_rbac"
 	// applications - A list of authorized applications for this API
-	Applications  []string `protobuf:"bytes,5,rep,name=applications,proto3" json:"applications,omitempty"`
+	Applications  []string `protobuf:"bytes,5,rep,name=applications,proto3" json:"applications,omitempty" bson:"applications"` // @gotags: bson:"applications"
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
