@@ -24,11 +24,11 @@ const (
 type LoginRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// email - The primary email address for the user. Must be unique
-	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty" bson:"email"` // @gotags: bson:"email"
 	// password - The plain text password for the user. Will be hashed on the server-side using ArgonV2ID
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty" bson:"password"` // @gotags: bson:"password"
 	// mfaCode - The user's multifactor authentication code generated on there device
-	MfaCode       uint32 `protobuf:"varint,3,opt,name=mfaCode,proto3" json:"mfaCode,omitempty"`
+	MfaCode       uint32 `protobuf:"varint,3,opt,name=mfa_code,json=mfaCode,proto3" json:"mfa_code,omitempty" bson:"mfa_code"` // @gotags: bson:"mfa_code"
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,11 +88,11 @@ var File_proto_request_login_proto protoreflect.FileDescriptor
 
 const file_proto_request_login_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/request/login.proto\x12\arequest\"Z\n" +
+	"\x19proto/request/login.proto\x12\arequest\"[\n" +
 	"\fLoginRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x18\n" +
-	"\amfaCode\x18\x03 \x01(\rR\amfaCodeB6Z4github.com/stevezaluk/credstack-models/proto/requestb\x06proto3"
+	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x19\n" +
+	"\bmfa_code\x18\x03 \x01(\rR\amfaCodeB6Z4github.com/stevezaluk/credstack-models/proto/requestb\x06proto3"
 
 var (
 	file_proto_request_login_proto_rawDescOnce sync.Once
