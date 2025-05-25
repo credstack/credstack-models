@@ -50,7 +50,7 @@ type User struct {
 	// phone_number - The users phone number in the following format +1800-555-555
 	PhoneNumber string `protobuf:"bytes,12,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty" bson:"phone_number"` // @gotags: bson:"phone_number"
 	// phone_number_verified - A boolean value describing if the user has validated there email address
-	PhoneNumberVerified string `protobuf:"bytes,13,opt,name=phone_number_verified,json=phoneNumberVerified,proto3" json:"phone_number_verified,omitempty" bson:"phone_number_verified"` // @gotags: bson:"phone_number_verified"
+	PhoneNumberVerified bool `protobuf:"varint,13,opt,name=phone_number_verified,json=phoneNumberVerified,proto3" json:"phone_number_verified,omitempty" bson:"phone_number_verified"` // @gotags: bson:"phone_number_verified"
 	// address - The users physical mailing address. Can be null
 	Address string `protobuf:"bytes,14,opt,name=address,proto3" json:"address,omitempty" bson:"address"` // @gotags: bson:"address"
 	// credential - A message representing the users hashed password. Will be left null when exporting unless explicitly declared
@@ -177,11 +177,11 @@ func (x *User) GetPhoneNumber() string {
 	return ""
 }
 
-func (x *User) GetPhoneNumberVerified() string {
+func (x *User) GetPhoneNumberVerified() bool {
 	if x != nil {
 		return x.PhoneNumberVerified
 	}
-	return ""
+	return false
 }
 
 func (x *User) GetAddress() string {
@@ -235,7 +235,7 @@ const file_proto_user_user_proto_rawDesc = "" +
 	" \x01(\tR\tbirthDate\x12\x1b\n" +
 	"\tzone_info\x18\v \x01(\tR\bzoneInfo\x12!\n" +
 	"\fphone_number\x18\f \x01(\tR\vphoneNumber\x122\n" +
-	"\x15phone_number_verified\x18\r \x01(\tR\x13phoneNumberVerified\x12\x18\n" +
+	"\x15phone_number_verified\x18\r \x01(\bR\x13phoneNumberVerified\x12\x18\n" +
 	"\aaddress\x18\x0e \x01(\tR\aaddress\x124\n" +
 	"\n" +
 	"credential\x18\x0f \x01(\v2\x14.user.UserCredentialR\n" +
