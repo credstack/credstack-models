@@ -7,6 +7,7 @@
 package api
 
 import (
+	header "github.com/stevezaluk/credstack-models/proto/header"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -70,17 +71,18 @@ func (TokenType) EnumDescriptor() ([]byte, []int) {
 
 // API - Represents an integrators API. Primarily contains RBAC information and determines the token type
 type API struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
+	state  protoimpl.MessageState `protogen:"open.v1"`
+	Header *header.Header         `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty" bson:"header"` // @gotags: bson:"header"
 	// domain - A arbitrary domain used in the audience of issues tokens. Does not need to resolve to anything
-	Domain string `protobuf:"bytes,1,opt,name=domain,proto3" json:"domain,omitempty" bson:"domains"` // @gotags: bson:"domains"
+	Domain string `protobuf:"bytes,2,opt,name=domain,proto3" json:"domain,omitempty" bson:"domains"` // @gotags: bson:"domains"
 	// name - The name of the API as defined by the user
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty" bson:"name"` // @gotags: bson:"name"
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty" bson:"name"` // @gotags: bson:"name"
 	// token_type - The type of tokens the API should issue
-	TokenType TokenType `protobuf:"varint,3,opt,name=token_type,json=tokenType,proto3,enum=api.TokenType" json:"token_type,omitempty" bson:"token_type"` // @gotags: bson:"token_type"
+	TokenType TokenType `protobuf:"varint,4,opt,name=token_type,json=tokenType,proto3,enum=api.TokenType" json:"token_type,omitempty" bson:"token_type"` // @gotags: bson:"token_type"
 	// enforce_rbac - Enforce permissions and roles for this API
-	EnforceRbac bool `protobuf:"varint,4,opt,name=enforce_rbac,json=enforceRbac,proto3" json:"enforce_rbac,omitempty" bson:"enforce_rbac"` // @gotags: bson:"enforce_rbac"
+	EnforceRbac bool `protobuf:"varint,5,opt,name=enforce_rbac,json=enforceRbac,proto3" json:"enforce_rbac,omitempty" bson:"enforce_rbac"` // @gotags: bson:"enforce_rbac"
 	// applications - A list of authorized applications for this API
-	Applications  []string `protobuf:"bytes,5,rep,name=applications,proto3" json:"applications,omitempty" bson:"applications"` // @gotags: bson:"applications"
+	Applications  []string `protobuf:"bytes,6,rep,name=applications,proto3" json:"applications,omitempty" bson:"applications"` // @gotags: bson:"applications"
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -113,6 +115,13 @@ func (x *API) ProtoReflect() protoreflect.Message {
 // Deprecated: Use API.ProtoReflect.Descriptor instead.
 func (*API) Descriptor() ([]byte, []int) {
 	return file_proto_api_api_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *API) GetHeader() *header.Header {
+	if x != nil {
+		return x.Header
+	}
+	return nil
 }
 
 func (x *API) GetDomain() string {
@@ -154,14 +163,15 @@ var File_proto_api_api_proto protoreflect.FileDescriptor
 
 const file_proto_api_api_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/api/api.proto\x12\x03api\"\xa7\x01\n" +
-	"\x03API\x12\x16\n" +
-	"\x06domain\x18\x01 \x01(\tR\x06domain\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12-\n" +
+	"\x13proto/api/api.proto\x12\x03api\x1a\x19proto/header/header.proto\"\xcf\x01\n" +
+	"\x03API\x12&\n" +
+	"\x06header\x18\x01 \x01(\v2\x0e.header.HeaderR\x06header\x12\x16\n" +
+	"\x06domain\x18\x02 \x01(\tR\x06domain\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12-\n" +
 	"\n" +
-	"token_type\x18\x03 \x01(\x0e2\x0e.api.TokenTypeR\ttokenType\x12!\n" +
-	"\fenforce_rbac\x18\x04 \x01(\bR\venforceRbac\x12\"\n" +
-	"\fapplications\x18\x05 \x03(\tR\fapplications*!\n" +
+	"token_type\x18\x04 \x01(\x0e2\x0e.api.TokenTypeR\ttokenType\x12!\n" +
+	"\fenforce_rbac\x18\x05 \x01(\bR\venforceRbac\x12\"\n" +
+	"\fapplications\x18\x06 \x03(\tR\fapplications*!\n" +
 	"\tTokenType\x12\t\n" +
 	"\x05HS256\x10\x00\x12\t\n" +
 	"\x05RS256\x10\x01B2Z0github.com/stevezaluk/credstack-models/proto/apib\x06proto3"
@@ -181,16 +191,18 @@ func file_proto_api_api_proto_rawDescGZIP() []byte {
 var file_proto_api_api_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_proto_api_api_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_proto_api_api_proto_goTypes = []any{
-	(TokenType)(0), // 0: api.TokenType
-	(*API)(nil),    // 1: api.API
+	(TokenType)(0),        // 0: api.TokenType
+	(*API)(nil),           // 1: api.API
+	(*header.Header)(nil), // 2: header.Header
 }
 var file_proto_api_api_proto_depIdxs = []int32{
-	0, // 0: api.API.token_type:type_name -> api.TokenType
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 0: api.API.header:type_name -> header.Header
+	0, // 1: api.API.token_type:type_name -> api.TokenType
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_proto_api_api_proto_init() }
