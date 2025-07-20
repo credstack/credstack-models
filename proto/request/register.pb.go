@@ -26,13 +26,13 @@ const (
 type UserRegisterRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// email - The primary email address for the user. Must be unique
-	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty" bson:"email"` // @gotags: bson:"email"
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty" bson:"email" query:"email"` // @gotags: bson:"email" query:"email"
 	// username - The username of the user. Does not need to be unique as primary lookup for the user is done via userId
-	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" bson:"username"` // @gotags: bson:"username"
+	Username string `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty" bson:"username" query:"username"` // @gotags: bson:"username" query:"username"
 	// password - The plain text password for the user. Will be hashed on the server-side using ArgonV2ID
-	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty" bson:"password"` // @gotags: bson:"password"
+	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty" bson:"password" query:"password"` // @gotags: bson:"password" query:"password"
 	// phone_number - The users phone number in the following format +1800-555-555
-	PhoneNumber   string `protobuf:"bytes,4,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty" bson:"phone_number"` // @gotags: bson:"phone_number"
+	PhoneNumber   string `protobuf:"bytes,4,opt,name=phone_number,json=phoneNumber,proto3" json:"phone_number,omitempty" bson:"phone_number" query:"phone_number"` // @gotags: bson:"phone_number" query:"phone_number"
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -104,7 +104,7 @@ const file_proto_request_register_proto_rawDesc = "" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12!\n" +
-	"\fphone_number\x18\x04 \x01(\tR\vphoneNumberB6Z4github.com/stevezaluk/credstack-models/proto/requestb\x06proto3"
+	"\fphone_number\x18\x04 \x01(\tR\vphoneNumberB5Z3github.com/credstack/credstack-models/proto/requestb\x06proto3"
 
 var (
 	file_proto_request_register_proto_rawDescOnce sync.Once

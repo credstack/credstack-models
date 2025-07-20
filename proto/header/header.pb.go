@@ -121,7 +121,7 @@ const file_proto_header_header_proto_rawDesc = "" +
 	"\x04tags\x18\x05 \x03(\v2\x18.header.Header.TagsEntryR\x04tags\x1a7\n" +
 	"\tTagsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B5Z3github.com/stevezaluk/credstack-models/proto/headerb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B4Z2github.com/credstack/credstack-models/proto/headerb\x06proto3"
 
 var (
 	file_proto_header_header_proto_rawDescOnce sync.Once

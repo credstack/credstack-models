@@ -25,17 +25,17 @@ const (
 type TokenResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// access_token - The JWT token as returned by the application
-	AccessToken string `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
+	AccessToken string `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty" bson:"access_token"` // @gotags: bson:"access_token"
 	// id_token - The JWT token as returned by the application
-	IdToken string `protobuf:"bytes,2,opt,name=id_token,json=idToken,proto3" json:"id_token,omitempty"`
+	IdToken string `protobuf:"bytes,2,opt,name=id_token,json=idToken,proto3" json:"id_token,omitempty" bson:"id_token"` // @gotags: bson:"id_token"
 	// token_type - The type of token this response represents. Usually bearer
-	TokenType string `protobuf:"bytes,3,opt,name=token_type,json=tokenType,proto3" json:"token_type,omitempty"`
+	TokenType string `protobuf:"bytes,3,opt,name=token_type,json=tokenType,proto3" json:"token_type,omitempty" bson:"token_type"` // @gotags: bson:"token_type"
 	// expires_in - The time in seconds that the token expires in
-	ExpiresIn uint32 `protobuf:"varint,4,opt,name=expires_in,json=expiresIn,proto3" json:"expires_in,omitempty"`
+	ExpiresIn uint32 `protobuf:"varint,4,opt,name=expires_in,json=expiresIn,proto3" json:"expires_in,omitempty" bson:"expires_in"` // @gotags: bson:"expires_in"
 	// refresh_token - The refresh token that the application has issued
-	RefreshToken string `protobuf:"bytes,5,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty"`
+	RefreshToken string `protobuf:"bytes,5,opt,name=refresh_token,json=refreshToken,proto3" json:"refresh_token,omitempty" bson:"refresh_token"` // @gotags: bson:"refresh_token"
 	// scope - A string of space seperated scopes that the user has been issued
-	Scope         string `protobuf:"bytes,6,opt,name=scope,proto3" json:"scope,omitempty"`
+	Scope         string `protobuf:"bytes,6,opt,name=scope,proto3" json:"scope,omitempty" bson:"scope"` // @gotags: bson:"scope"
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -125,7 +125,7 @@ const file_proto_token_response_proto_rawDesc = "" +
 	"\n" +
 	"expires_in\x18\x04 \x01(\rR\texpiresIn\x12#\n" +
 	"\rrefresh_token\x18\x05 \x01(\tR\frefreshToken\x12\x14\n" +
-	"\x05scope\x18\x06 \x01(\tR\x05scopeB.Z,github.com/stevezaluk/credstack-models/tokenb\x06proto3"
+	"\x05scope\x18\x06 \x01(\tR\x05scopeB3Z1github.com/credstack/credstack-models/proto/tokenb\x06proto3"
 
 var (
 	file_proto_token_response_proto_rawDescOnce sync.Once

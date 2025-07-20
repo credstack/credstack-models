@@ -1,3 +1,8 @@
-module github.com/stevezaluk/credstack-models
+module github.com/credstack/credstack-models
 
 go 1.24.2
+
+require (
+	github.com/golang/protobuf v1.5.4
+	google.golang.org/protobuf v1.36.6
+)
