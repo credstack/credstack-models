@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: proto/jwk/jwk.proto
 
-package key
+package jwk
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -124,7 +124,7 @@ const file_proto_jwk_jwk_proto_rawDesc = "" +
 	"\x03kid\x18\x03 \x01(\tR\x03kid\x12\x10\n" +
 	"\x03alg\x18\x04 \x01(\tR\x03alg\x12\f\n" +
 	"\x01n\x18\x05 \x01(\tR\x01n\x12\f\n" +
-	"\x01e\x18\x06 \x01(\tR\x01eB1Z/github.com/credstack/credstack-models/proto/keyb\x06proto3"
+	"\x01e\x18\x06 \x01(\tR\x01eB1Z/github.com/credstack/credstack-models/proto/jwkb\x06proto3"
 
 var (
 	file_proto_jwk_jwk_proto_rawDescOnce sync.Once

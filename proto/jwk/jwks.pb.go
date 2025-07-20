@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: proto/jwk/jwks.proto
 
-package key
+package jwk
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -73,7 +73,7 @@ const file_proto_jwk_jwks_proto_rawDesc = "" +
 	"\n" +
 	"\x14proto/jwk/jwks.proto\x12\x03jwk\x1a\x13proto/jwk/jwk.proto\"4\n" +
 	"\rJSONWebKeySet\x12#\n" +
-	"\x04keys\x18\x01 \x03(\v2\x0f.jwk.JSONWebKeyR\x04keysB1Z/github.com/credstack/credstack-models/proto/keyb\x06proto3"
+	"\x04keys\x18\x01 \x03(\v2\x0f.jwk.JSONWebKeyR\x04keysB1Z/github.com/credstack/credstack-models/proto/jwkb\x06proto3"
 
 var (
 	file_proto_jwk_jwks_proto_rawDescOnce sync.Once

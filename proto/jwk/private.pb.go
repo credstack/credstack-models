@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: proto/jwk/private.proto
 
-package key
+package jwk
 
 import (
 	header "github.com/credstack/credstack-models/proto/header"
@@ -126,7 +126,7 @@ const file_proto_jwk_private_proto_rawDesc = "" +
 	"\x04size\x18\x04 \x01(\x03R\x04size\x12\x1d\n" +
 	"\n" +
 	"is_current\x18\x05 \x01(\bR\tisCurrent\x12\x1a\n" +
-	"\baudience\x18\x06 \x01(\tR\baudienceB1Z/github.com/credstack/credstack-models/proto/keyb\x06proto3"
+	"\baudience\x18\x06 \x01(\tR\baudienceB1Z/github.com/credstack/credstack-models/proto/jwkb\x06proto3"
 
 var (
 	file_proto_jwk_private_proto_rawDescOnce sync.Once
